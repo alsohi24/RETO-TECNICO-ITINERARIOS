@@ -16,6 +16,8 @@ import {
 } from 'src/itinerarios/itinerario.entity';
 import { Bus, BusSchema } from 'src/bus/bus.entity';
 import { Reserva, ReservaSchema } from 'src/reserva/reserva.entity';
+import { ItinerariosController } from 'src/itinerarios/itinerario.controller';
+import { ItinerarioService } from 'src/itinerarios/itinerario.service';
 
 @Module({
   imports: [
@@ -46,8 +48,13 @@ import { Reserva, ReservaSchema } from 'src/reserva/reserva.entity';
       },
     ]),
   ],
-  controllers: [CustomerController, UsersController, TaskController],
-  providers: [CustomersService, UsersService, TaskService],
+  controllers: [
+    CustomerController,
+    UsersController,
+    TaskController,
+    ItinerariosController,
+  ],
+  providers: [CustomersService, UsersService, TaskService, ItinerarioService],
   exports: [UsersService],
 })
 export class UsersModule {}

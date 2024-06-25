@@ -16,7 +16,8 @@ export class ItinerarioService {
   }
 
   findAll() {
-    return this.itinerarioModel.find().exec();
+    const tasksCollection = this.databaseMongo.collection('itinerario');
+    return tasksCollection.find().toArray();
   }
 
   getItinerarios(userId: string) {
